@@ -73,11 +73,18 @@ jobs:
           echo "$SSH_PEM_KEY" >> ~/key.pem
           chmod 400 ~/key.pem
           
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.5.4
+      - name: ssh to ec2
+        uses: appleboy/ssh-action@master
         with:
-          #ssh-private-key: ${{ secrets.SSH_KEY }}
-          ssh-private-key: ~/key.pem
+          key: ${{ secrets.SSH_KEY }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          
+      #- name: Setup SSH
+       # uses: webfactory/ssh-agent@v0.5.4
+        # with:
+          ##ssh-private-key: ${{ secrets.SSH_KEY }}
+         # ssh-private-key: ~/key.pem
           
       - name: SCP transfer
         run: scp *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
