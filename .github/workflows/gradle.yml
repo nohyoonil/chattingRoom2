@@ -68,11 +68,16 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: cicdsample
+
+      - run: |
+          echo "$SSH_PEM_KEY" >> ~/key.pem
+          chmod 400 ~/key.pem
           
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.5.4
         with:
-          ssh-private-key: ${{ secrets.SSH_KEY }}
+          #ssh-private-key: ${{ secrets.SSH_KEY }}
+          ssh-private-key: ~/key.pem
           
       - name: SCP transfer
         run: scp *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
