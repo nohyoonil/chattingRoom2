@@ -71,10 +71,13 @@ jobs:
       
       - name: check *.jar
         run: ls
+
+      - name: ssh to ec2
+        run: ssh -i ./key.pem ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
         
       - name: scp jar to ec2 
-       # run: scp -i ./key.pem *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
-        run: scp -o StrictHostKeyChecking=no *.jar ubuntu@15.165.3.158:~/cicd
+        # run: scp -i ./key.pem *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
+        run: scp *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
           
       #- name: ssh to ec2
        # uses: appleboy/ssh-action@master
