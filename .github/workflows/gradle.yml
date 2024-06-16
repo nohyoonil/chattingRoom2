@@ -72,7 +72,7 @@ jobs:
       - run: |
           echo $ssh_key >> ~/key.pem
           cat ~/key.pem
-          chmod 400 ~/key.pem
+          chmod 777 ~/key.pem
       
       - name: check *.jar
         run: ls
