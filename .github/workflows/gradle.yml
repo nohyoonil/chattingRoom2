@@ -62,7 +62,7 @@ jobs:
     
     runs-on: ubuntu-latest
     env: 
-      ssh_key: ${{ secret.SSH_KEY }}
+      ssh_key: ${{ secrets.SSH_KEY }}
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
