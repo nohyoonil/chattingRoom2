@@ -75,8 +75,8 @@ jobs:
           chmod 400 ~/key.pem
       - name: check *.jar
         run: ls
-      - name: scp jar to ec2
-        run: scp -i ~/key.pem *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
+      #- name: scp jar to ec2
+       # run: scp -i ~/key.pem *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
           
       - name: ssh to ec2
         uses: appleboy/ssh-action@master
@@ -85,11 +85,11 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           script: |
-              #scp *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
-              #ssh ${{ secrets.USER }}@${{ secrets.HOST }} "sudo fuser -k 8080/tcp || true"
-              #ssh ${{ secrets.USER }}@${{ secrets.HOST }} "sudo nohup /usr/bin/java -jar ~/cicd/*.jar &"
-              sudo fuser -k 8080/tcp || true
-              sudo nohup /usr/bin/java -jar ~/cicd/*.jar &
+              scp *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
+              ssh ${{ secrets.USER }}@${{ secrets.HOST }} "sudo fuser -k 8080/tcp || true"
+              ssh ${{ secrets.USER }}@${{ secrets.HOST }} "sudo nohup /usr/bin/java -jar ~/cicd/*.jar &"
+              #sudo fuser -k 8080/tcp || true
+              #sudo nohup /usr/bin/java -jar ~/cicd/*.jar &
               
       #- name: Setup SSH
        # uses: webfactory/ssh-agent@v0.5.4
