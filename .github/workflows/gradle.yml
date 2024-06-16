@@ -74,7 +74,7 @@ jobs:
         
       - name: scp jar to ec2 
         # run: scp -i ./key.pem *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
-        run: scp -i ./key.pem *.jar ubuntu@15.165.3.158:~/cicd
+        run: scp -i -o StrictHostKeyChecking=no ./key.pem *.jar ubuntu@15.165.3.158:~/cicd
           
       #- name: ssh to ec2
        # uses: appleboy/ssh-action@master
