@@ -78,7 +78,8 @@ jobs:
         run: ls
         
       - name: scp jar to ec2
-        run: scp -i ~/key.pem *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
+        run: scp -i $ssh_key *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
+       # run: scp -i ~/key.pem *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
           
       #- name: ssh to ec2
        # uses: appleboy/ssh-action@master
