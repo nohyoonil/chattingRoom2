@@ -43,8 +43,6 @@ jobs:
       
     - run: ./gradlew init
 
-    #- name: Build with Gradle Wrapper
-    #  run: ./gradlew build
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v3
       
@@ -91,31 +89,4 @@ jobs:
          script: |
            sudo fuser -k 8080/tcp || true
            sudo nohup java -jar ~/cicd/*.jar &
-        
-          
-      #- name: ssh to ec2
-       # uses: appleboy/ssh-action@master
-        #with:
-          # key: ${{ secrets.SSH_KEY }}
-          # host: ${{ secrets.HOST }}
-          # username: ${{ secrets.USER }}
-          # script: |
-           #   scp *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
-           #   ssh ${{ secrets.USER }}@${{ secrets.HOST }} "sudo fuser -k 8080/tcp || true"
-           #   ssh ${{ secrets.USER }}@${{ secrets.HOST }} "sudo nohup /usr/bin/java -jar ~/cicd/*.jar &"
-              #sudo fuser -k 8080/tcp || true
-              #sudo nohup /usr/bin/java -jar ~/cicd/*.jar &
-              
-      #- name: Setup SSH
-       # uses: webfactory/ssh-agent@v0.5.4
-        # with:
-          ##ssh-private-key: ${{ secrets.SSH_KEY }}
-         # ssh-private-key: ~/key.pem
-          
-     # - name: SCP transfer
-      #  run: scp *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
-      #- name: Execute remote commands
-       # run: |
-        #  ssh ${{ secrets.USER }}@${{ secrets.HOST }} "sudo fuser -k 8080/tcp || true"
-         # ssh ${{ secrets.USER }}@${{ secrets.HOST }} "sudo nohup /usr/bin/java -jar ~/cicd/*.jar &"
   
