@@ -87,7 +87,10 @@ jobs:
          key: ${{ secrets.SSH_KEY }}
          script_stop: true
          script: |
-           sudo fuser -k 8080/tcp || true
-           nohup java -jar ~/cicd/*.jar &
-           exit
+           chmod +x ~/cicd/deploy.sh
+           sh ~/cicd/deploy.sh
+           
+          # sudo fuser -k 8080/tcp || true
+          # nohup java -jar ~/cicd/*.jar &
+          # exit
   
