@@ -55,35 +55,23 @@ jobs:
     needs: build
     
     runs-on: ubuntu-latest
-    env: 
-      ssh_key: ${{ secrets.SSH_KEY }}
     steps:
-      - uses: actions/checkout@v4
+      #- uses: actions/checkout@v4
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: cicdsample
-
-      - run: |
-          echo $ssh_key >> ./key.pem
-          cat ./key.pem
-          chmod 400 ./key.pem
       
       - name: check *.jar
         run: ls
 
-     # - run: ssh-keygen -R ${{ secrets.HOST }}
-        
-     # - name: scp jar to ec2 
-      #  run: scp -i ./key.pem *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
-
-      - name: Copy jar file to remote
+      - name: scp jar to ec2
         uses: appleboy/scp-action@master
         with:
          username: ${{ secrets.USER }}
          host: ${{ secrets.HOST }}
          key: ${{ secrets.SSH_KEY }}
-         source: "./*.jar"
+         source: "*.jar"
          target: "~/cicd"
          strip_components: 2
 
