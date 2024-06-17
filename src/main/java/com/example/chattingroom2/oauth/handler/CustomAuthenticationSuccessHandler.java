@@ -32,7 +32,7 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         cookie.setPath("/");
         response.addCookie(cookie);
 
-        String targetUri = UriComponentsBuilder.fromUriString("http://localhost:8080/success")
+        String targetUri = UriComponentsBuilder.fromUriString("http://ec2-15-165-3-158.ap-northeast-2.compute.amazonaws.com:8080/success")
                 .queryParam("socialID", user.getName())
                 .build().toUriString();
 
