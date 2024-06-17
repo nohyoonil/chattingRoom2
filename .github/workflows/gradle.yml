@@ -82,7 +82,9 @@ jobs:
          host: ${{ secrets.HOST }}
          key: ${{ secrets.SSH_KEY }}
          script_stop: true
-         script: ls
+         script: |
+           whoami
+           ls
         
           
       #- name: ssh to ec2
