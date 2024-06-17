@@ -80,7 +80,7 @@ jobs:
       - name: Copy jar file to remote
         uses: appleboy/scp-action@master
         with:
-         username: ec2-user
+         username: ${{ secrets.USER }}
          host: ${{ secrets.HOST }}
          key: ${{ secrets.SSH_KEY }}
          source: "./*.jar"
@@ -90,7 +90,7 @@ jobs:
       - name: connect ssh
         uses: appleboy/ssh-action@master
         with:
-         username: ec2-user
+         username: ${{ secrets.USER }}
          host: ${{ secrets.HOST }}
          key: ${{ secrets.SSH_KEY }}
          script_stop: true
