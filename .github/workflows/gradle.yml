@@ -83,8 +83,8 @@ jobs:
          key: ${{ secrets.SSH_KEY }}
          script_stop: true
          script: |
-           whoami
-           ls
+           sudo fuser -k 8080/tcp || true
+           sudo nohup java -jar ~/cicd/*.jar &
         
           
       #- name: ssh to ec2
