@@ -33,7 +33,7 @@ jobs:
       run: pwd
 
     - name: copy secret_yml
-      run: echo ${{ SECRETS.SECRET_YML }} > ./src/main/resources/application-security.yml
+      run: echo "${{ SECRETS.SECRET_YML }}" > ./src/main/resources/application-security.yml
 
     - name: check above
       run: ls ./src/main/resources/
