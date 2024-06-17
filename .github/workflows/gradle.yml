@@ -73,7 +73,7 @@ jobs:
          key: ${{ secrets.SSH_KEY }}
          source: "*.jar"
          target: "~/cicd"
-         strip_components: 2
+         # strip_components: 2
 
       - name: connect ssh
         uses: appleboy/ssh-action@master
