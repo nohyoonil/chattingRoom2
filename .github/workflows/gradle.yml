@@ -79,7 +79,7 @@ jobs:
          target: "~/cicd"
          # strip_components: 2
 
-      - name: connect ssh
+      - name: connect to ssh and deploy jar
         uses: appleboy/ssh-action@master
         with:
          username: ${{ secrets.USER }}
@@ -88,6 +88,6 @@ jobs:
          script_stop: true
          script: |
            sudo fuser -k 8080/tcp || true
-           sudo nohup java -jar ~/cicd/*.jar &
+           nohup java -jar ~/cicd/*.jar &
            exit
   
