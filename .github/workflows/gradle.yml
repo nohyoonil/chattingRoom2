@@ -72,7 +72,7 @@ jobs:
       - name: check *.jar
         run: ls
 
-      - run: ssh-keygen -R ${{ secrets.HOST }}
+     # - run: ssh-keygen -R ${{ secrets.HOST }}
         
      # - name: scp jar to ec2 
       #  run: scp -i ./key.pem *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
