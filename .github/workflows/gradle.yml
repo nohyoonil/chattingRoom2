@@ -74,8 +74,27 @@ jobs:
 
       - run: ssh-keygen -R ${{ secrets.HOST }}
         
-      - name: scp jar to ec2 
-        run: scp -i ./key.pem *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
+     # - name: scp jar to ec2 
+      #  run: scp -i ./key.pem *.jar ${{ secrets.USER }}@${{ secrets.HOST }}:~/cicd
+
+      - name: Copy jar file to remote
+        uses: appleboy/scp-action@master
+        with:
+         username: ec2-user
+         host: ${{ secrets.HOST }}
+         key: ${{ secrets.SSH_KEY }}
+         source: "./*.jar"
+         target: "/home/ubuntu/cicd"
+         strip_components: 2
+
+      - name: connect ssh
+        uses: appleboy/ssh-action@master
+        with:
+         username: ec2-user
+         host: ${{ secrets.HOST }}
+         key: ${{ secrets.SSH_KEY }}
+         script_stop: true
+         run: ls
         
           
       #- name: ssh to ec2
