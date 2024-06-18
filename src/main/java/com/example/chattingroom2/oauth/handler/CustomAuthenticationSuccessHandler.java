@@ -7,6 +7,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -19,6 +20,8 @@ import java.time.Duration;
 @RequiredArgsConstructor
 public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
+    @Value("${ec2.uri}")
+    private String ec2Uri;
     private final JwtUtil jwtUtil;
 
     @Override
@@ -32,7 +35,7 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         cookie.setPath("/");
         response.addCookie(cookie);
 
-        String targetUri = UriComponentsBuilder.fromUriString("http://ec2-15-165-3-158.ap-northeast-2.compute.amazonaws.com:8080/success")
+        String targetUri = UriComponentsBuilder.fromUriString(ec2Uri + "/success")
                 .queryParam("socialID", user.getName())
                 .build().toUriString();
 
