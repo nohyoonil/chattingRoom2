@@ -26,11 +26,13 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(final StompEndpointRegistry registry) {
         registry
                 .addEndpoint("/ws-stomp")// 엔드포인트: ws://ip:port/ws-stomp
-                .setAllowedOrigins("*");
+//                .setAllowedOrigins("*")
+                .setAllowedOriginPatterns("*");
+                //.withSockJS();
     }
 
     @Override
-    public void configureClientInboundChannel(ChannelRegistration registration) { // todo websocket 연결 전 jwt 토큰 유효한지 인증
+    public void configureClientInboundChannel(ChannelRegistration registration) {
         registration.interceptors(stompHandler);
     }
 }
