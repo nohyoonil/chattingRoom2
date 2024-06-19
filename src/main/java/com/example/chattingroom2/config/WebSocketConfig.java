@@ -26,9 +26,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(final StompEndpointRegistry registry) {
         registry
                 .addEndpoint("/ws-stomp")// 엔드포인트: ws://ip:port/ws-stomp
-//                .setAllowedOrigins("*")
-                .setAllowedOriginPatterns("*");
-//                .withSockJS();
+                .setAllowedOrigins("*");
     }
 
     @Override
