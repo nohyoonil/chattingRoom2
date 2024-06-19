@@ -28,7 +28,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
                 .addEndpoint("/ws-stomp")// 엔드포인트: ws://ip:port/ws-stomp
 //                .setAllowedOrigins("*")
                 .setAllowedOriginPatterns("*");
-                //.withSockJS();
+//                .withSockJS();
     }
 
     @Override
