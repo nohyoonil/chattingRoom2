@@ -17,5 +17,5 @@ h2:
    path: /h2-console
 
 ec2:
- uri: http://ec2-15-165-3-158.ap-northeast-2.compute.amazonaws.com:8080
+ uri: https://chattingroom2.shop
 
