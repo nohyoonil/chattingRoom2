@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
+import java.util.Arrays;
+
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -24,6 +26,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> exceptionHandler(Exception e) {
         log.error("---internal server error---");
+        log.error(Arrays.toString(e.getStackTrace()));
         return ResponseEntity.internalServerError().body("서버 내부 오류입니다.");
     }
 }
