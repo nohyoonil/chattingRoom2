@@ -15,7 +15,7 @@ import java.io.IOException;
 public class JwtFilter extends GenericFilter {
 
     private final JwtUtil jwtUtil;
-    public static final String AUTHORIZATION_COOKIE = "Authorization";
+    private static final String AUTHORIZATION_COOKIE = "Authorization";
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {

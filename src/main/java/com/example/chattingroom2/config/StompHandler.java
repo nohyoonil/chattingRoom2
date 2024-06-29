@@ -31,7 +31,7 @@ public class StompHandler implements ChannelInterceptor {
             }
             log.info("user connected");
         }
-        // todo
+
         return message;
     }
 }
