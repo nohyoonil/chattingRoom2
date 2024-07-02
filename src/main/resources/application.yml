@@ -15,7 +15,3 @@ h2:
  console:
    enabled: true
    path: /h2-console
-
-ec2:
- uri: https://chattingroom2.shop
-
