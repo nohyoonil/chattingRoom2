@@ -1,7 +1,7 @@
 package com.example.chattingroom2.config;
 
 import com.example.chattingroom2.exception.UnvalidatedTokenException;
-import com.example.chattingroom2.util.JwtUtil;
+import com.example.chattingroom2.jwt.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.Message;

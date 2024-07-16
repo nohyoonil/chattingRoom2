@@ -1,6 +1,5 @@
 package com.example.chattingroom2.jwt;
 
-import com.example.chattingroom2.util.JwtUtil;
 import jakarta.servlet.*;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;

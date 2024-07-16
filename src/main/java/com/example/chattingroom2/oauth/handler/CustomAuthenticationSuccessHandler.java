@@ -1,7 +1,7 @@
 package com.example.chattingroom2.oauth.handler;
 
 import com.example.chattingroom2.oauth.model.UserPrincipal;
-import com.example.chattingroom2.util.JwtUtil;
+import com.example.chattingroom2.jwt.JwtUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;

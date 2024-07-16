@@ -4,7 +4,7 @@ import com.example.chattingroom2.jwt.JwtFilter;
 import com.example.chattingroom2.oauth.handler.AuthenticationEntryPoint;
 import com.example.chattingroom2.oauth.handler.CustomAuthenticationSuccessHandler;
 import com.example.chattingroom2.service.CustomOauth2UserService;
-import com.example.chattingroom2.util.JwtUtil;
+import com.example.chattingroom2.jwt.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

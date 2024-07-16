@@ -1,4 +1,4 @@
-package com.example.chattingroom2.util;
+package com.example.chattingroom2.jwt;
 
 import com.example.chattingroom2.jwt.JwtProperties;
 import io.jsonwebtoken.Claims;
