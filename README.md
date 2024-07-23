@@ -6,7 +6,6 @@
 # 기술 스택
 java / springboot / redis / spring security / h2 / docker / github actions
 
-# 프로젝트 아키텍처
 
 # 구현 기능
 
